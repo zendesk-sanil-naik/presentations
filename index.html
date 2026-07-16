@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentations</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #ffe066 0%, #ffb703 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 640px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        p.subtitle { color: #666; margin-bottom: 2rem; }
+        a.card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 2px solid #ffb703;
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        a.card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+        }
+        a.card h2 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+        a.card span { color: #888; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Presentations</h1>
+        <p class="subtitle">A collection of interactive talks.</p>
+        <a class="card" href="effective-meetings/">
+            <h2>Running Effective Meetings →</h2>
+            <span>Interactive edition with games, humor & audience participation</span>
+        </a>
+    </div>
+</body>
+</html>
