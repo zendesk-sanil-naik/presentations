@@ -263,6 +263,12 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
+        .character-card p {
+            margin-top: 8px;
+            font-size: 0.95em;
+            color: #666;
+        }
+
         .character-emoji {
             font-size: 2.5em;
             margin-bottom: 8px;
@@ -495,22 +501,122 @@
         }
 
         .principle-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #f5f6ff;
+            color: #444;
             padding: 30px;
             border-radius: 15px;
+            border: 1px solid #e2e5ff;
+            border-left: 4px solid #667eea;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .principle-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
         }
 
         .principle-card h3 {
-            color: white;
+            color: #667eea;
             margin-top: 0;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 8%;
+            right: 8%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            z-index: 0;
+        }
+
+        .timeline-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .timeline-marker {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            border: 4px solid white;
+        }
+
+        .timeline-content {
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 15px;
+            padding: 20px 24px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.25);
+        }
+
+        .timeline-phase {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+
+        .timeline-always {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 22px 30px;
+            margin-top: 10px;
+        }
+
+        .timeline-always .timeline-phase {
+            color: white;
+            margin-bottom: 0;
+            white-space: nowrap;
+        }
+
+        .timeline-always ul {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0;
+        }
+
+        .timeline-always li {
+            margin: 0;
+        }
+
+        .slide[data-slide="4"] .scenario-card {
+            border: none;
         }
 
         ul {
@@ -548,61 +654,61 @@
         <!-- Slide 2: Meet the Meeting Archetypes -->
         <div class="slide" data-slide="2">
             <h2>🎭 The Meeting Character Zoo</h2>
-            <p style="font-size: 1.2em; margin-bottom: 30px;">Click on each character to reveal yourself (we've all been at least one):</p>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">Which one are you? (We've all been at least one):</p>
 
             <div class="character-grid">
-                <div class="character-card" onclick="revealCharacter(this)">
+                <div class="character-card">
                     <span class="character-emoji">🗣️</span>
                     <div class="character-name">The Dominator</div>
-                    <p style="display: none;">"Let me tell you about my 20-minute tangent..."</p>
+                    <p>"Let me tell you about my 20-minute tangent..."</p>
                 </div>
 
-                <div class="character-card" onclick="revealCharacter(this)">
+                <div class="character-card">
                     <span class="character-emoji">🤐</span>
                     <div class="character-name">The Ghost</div>
-                    <p style="display: none;">Camera off. Mic off. Are they even there?</p>
+                    <p>Camera off. Mic off. Are they even there?</p>
                 </div>
 
-                <div class="character-card" onclick="revealCharacter(this)">
+                <div class="character-card">
                     <span class="character-emoji">💻</span>
                     <div class="character-name">The Multitasker</div>
-                    <p style="display: none;">"Sorry, what was the question?" (clearly typing)</p>
+                    <p>"Sorry, what was the question?" (clearly typing)</p>
                 </div>
 
-                <div class="character-card" onclick="revealCharacter(this)">
+                <div class="character-card">
                     <span class="character-emoji">⏰</span>
                     <div class="character-name">The Late Arrival</div>
-                    <p style="display: none;">"Sorry I'm late! Can someone catch me up?"</p>
+                    <p>"Sorry I'm late! Can someone catch me up?"</p>
                 </div>
 
-                <div class="character-card" onclick="revealCharacter(this)">
+                <div class="character-card">
                     <span class="character-emoji">🤔</span>
                     <div class="character-name">The Devil's Advocate</div>
-                    <p style="display: none;">"Playing devil's advocate here..." (for the 5th time)</p>
+                    <p>"Playing devil's advocate here..." (for the 5th time)</p>
                 </div>
 
-                <div class="character-card" onclick="revealCharacter(this)">
+                <div class="character-card">
                     <span class="character-emoji">📧</span>
                     <div class="character-name">The Email Artist</div>
-                    <p style="display: none;">Could have sent this in an email. Literally.</p>
+                    <p>Could have sent this in an email. Literally.</p>
                 </div>
 
-                <div class="character-card" onclick="revealCharacter(this)">
+                <div class="character-card">
                     <span class="character-emoji">🔥</span>
                     <div class="character-name">The Firefighter</div>
-                    <p style="display: none;">"I have to drop - there's an incident!"</p>
+                    <p>"I have to drop - there's an incident!"</p>
                 </div>
 
-                <div class="character-card" onclick="revealCharacter(this)">
+                <div class="character-card">
                     <span class="character-emoji">🎤</span>
                     <div class="character-name">The Broken Record</div>
-                    <p style="display: none;">Brings up the same point in every. Single. Meeting.</p>
+                    <p>Brings up the same point in every. Single. Meeting.</p>
                 </div>
 
-                <div class="character-card" onclick="revealCharacter(this)">
+                <div class="character-card">
                     <span class="character-emoji">🎯</span>
                     <div class="character-name">The MVP</div>
-                    <p style="display: none;">Prepared, engaged, helpful. Be like this one! ⭐</p>
+                    <p>Prepared, engaged, helpful. Be like this one! ⭐</p>
                 </div>
             </div>
 
@@ -889,47 +995,56 @@
             <h2>⚡ Rapid Fire: Meeting Hygiene Checklist</h2>
             <p style="font-size: 1.2em; margin-bottom: 30px;">These apply to EVERY meeting. No exceptions!</p>
 
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start;">
-                <div class="scenario-card">
-                    <h3 style="margin-top: 0;">✅ Before</h3>
-                    <ul>
-                        <li>Clear agenda 24-48hrs ahead</li>
-                        <li>Right people invited</li>
-                        <li>Required reading shared</li>
-                        <li>Ask: "Can this be async?"</li>
-                    </ul>
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <div class="timeline-phase">⬅️ Before</div>
+                        <ul>
+                            <li>Clear agenda 24-48hrs ahead</li>
+                            <li>Right people invited</li>
+                            <li>Required reading shared</li>
+                            <li>Ask: "Can this be async?"</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="scenario-card">
-                    <h3 style="margin-top: 0;">✅ During</h3>
-                    <ul>
-                        <li>Start and end on time</li>
-                        <li>State the objective upfront</li>
-                        <li>One conversation at a time</li>
-                        <li>Invite quiet voices</li>
-                        <li>Park off-topic items</li>
-                    </ul>
+                <div class="timeline-step">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <div class="timeline-phase">▶️ During</div>
+                        <ul>
+                            <li>Start and end on time</li>
+                            <li>State the objective upfront</li>
+                            <li>One conversation at a time</li>
+                            <li>Invite quiet voices</li>
+                            <li>Park off-topic items</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="scenario-card">
-                    <h3 style="margin-top: 0;">✅ After</h3>
-                    <ul>
-                        <li>Share notes within 24hrs</li>
-                        <li>Clear owners & deadlines</li>
-                        <li>Follow up on actions</li>
-                        <li>Close the feedback loop</li>
-                    </ul>
+                <div class="timeline-step">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <div class="timeline-phase">✅ After</div>
+                        <ul>
+                            <li>Share notes within 24hrs</li>
+                            <li>Clear owners & deadlines</li>
+                            <li>Follow up on actions</li>
+                            <li>Close the feedback loop</li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
 
-                <div class="scenario-card">
-                    <h3 style="margin-top: 0;">✅ Always</h3>
-                    <ul>
-                        <li>Psychological safety first</li>
-                        <li>Respect everyone's time</li>
-                        <li>Active listening > talking</li>
-                        <li>Celebrate what works</li>
-                    </ul>
-                </div>
+            <div class="timeline-always">
+                <div class="timeline-phase">♾️ Always</div>
+                <ul>
+                    <li>Psychological safety first</li>
+                    <li>Respect everyone's time</li>
+                    <li>Active listening > talking</li>
+                    <li>Celebrate what works</li>
+                </ul>
             </div>
 
         </div>
@@ -1142,13 +1257,7 @@
             }
         }
 
-        // Character reveal
-        function revealCharacter(card) {
-            const description = card.querySelector('p');
-            description.style.display = description.style.display === 'none' ? 'block' : 'none';
-        }
-
-        // Quiz functionality
+// Quiz functionality
         function checkAnswer(option, isCorrect) {
             const container = option.parentElement;
             const options = container.querySelectorAll('.quiz-option');
